@@ -3,8 +3,9 @@
 <% end %>
 
 <% @questions.each do |question| %>
+
   <h1>
-    <%= link_to question.id, description %>
+    <%= link_to "Question #{question.id} ??", 'description' %>
   </h1>
   <h3>
     Created <%= time_ago_in_words question.created_at %> ago
@@ -14,7 +15,7 @@
   
   <%= link_to 'Edit this question', edit_question_path(question) %>
 
-  <%= link_to 'Delete this question', restaurant_path(question), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Delete this question', question_path(question), method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 
 <h3>
