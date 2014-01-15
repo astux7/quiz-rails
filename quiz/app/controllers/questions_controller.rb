@@ -1,10 +1,10 @@
 class QuestionsController < ApplicationController
   def new
-    @question = Questions.new
+    @question = Question.new
   end
 
   def create
-    @question = Questions.new params[:questions].permit(:description)
+    @question = Question.new params[:question].permit(:description)
 
     if @question.save
       redirect_to questions_path
@@ -14,6 +14,6 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Questions.all
+    @questions = Question.all
   end
 end

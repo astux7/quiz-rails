@@ -1,0 +1,22 @@
+<% if @questions.none? %>
+  No Questions yet!
+<% end %>
+
+<% @questions.each do |question| %>
+  <h1>
+    <%= link_to question.id, description %>
+  </h1>
+  <h3>
+    Created <%= time_ago_in_words question.created_at %> ago
+  </h3>
+  
+  <p><%= truncate question.description, length: 140 %></p>
+  
+  <%= link_to 'Edit this question', edit_question_path(question) %>
+
+  <%= link_to 'Delete this question', restaurant_path(question), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<h3>
+  <%= link_to 'Add a question', new_question_path %>
+</h3>
