@@ -8,7 +8,6 @@ describe 'creating question' do
       visit '/questions/new'
       fill_in 'Question Description', with: 'Does sun shines during night time?'
       click_button 'Add the question!'
- 
       expect(current_path).to eq '/questions'
       expect(page).to have_content 'Does sun shines during night time?'
     end
