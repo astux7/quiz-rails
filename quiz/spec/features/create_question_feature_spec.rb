@@ -7,7 +7,7 @@ describe 'creating question' do
     it 'should display the new question on the list of questions' do
       visit '/questions/new'
       fill_in 'Question Description', with: 'Does sun shines during night time?'
-      click_button 'Add the question!'
+      click_button 'Add the question'
       expect(current_path).to eq '/questions'
       expect(page).to have_content 'Does sun shines during night time?'
     end
