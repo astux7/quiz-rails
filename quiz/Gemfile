@@ -32,9 +32,14 @@ gem 'jbuilder', '~> 1.2'
 gem 'sdoc',          group: :doc, require: false
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/jonleighton/spring
-gem 'spring',        group: :development
+gem 'spring'        #group: :development
 
+#for User model and views creation
 gem 'devise'
+
+# gem 'less'
+#installing default css
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => 'bootstrap3'
 
 group :test, :development do
   gem 'rspec-rails'
