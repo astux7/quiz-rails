@@ -12,6 +12,10 @@ class QuestionsController < ApplicationController
       render 'new'
     end
   end
+ 
+  def show
+    @question = Question.find params[:id] 
+  end
 
   def index
     @questions = Question.all
@@ -19,6 +23,12 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find params[:id]
+  end
+
+  def update
+    @question = Question.find params[:id]
+    @question.update params[:question].permit(:description, :correct_answer)
+    redirect_to questions_path
   end
 
   def destroy
