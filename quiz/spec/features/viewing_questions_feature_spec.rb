@@ -18,8 +18,7 @@ describe 'question index' do
 
     it 'has individual pages for each question' do
       visit '/questions'
-      page.all('a')[4].click
-      #click_link "Question #1"
+      click_link "5"
       expect(page).to have_content 'Murrrr'
     end
 

@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+
+  
   def new
     @question = Question.new
   end
@@ -15,6 +17,11 @@ class QuestionsController < ApplicationController
  
   def show
     @question = Question.find params[:id] 
+  end
+
+  def quiz
+    @questions = Question.where("user_id <> ?", current_user)
+    @question = @questions[0]
   end
 
   def index

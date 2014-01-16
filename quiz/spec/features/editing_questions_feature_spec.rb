@@ -9,16 +9,16 @@ describe 'editing question' do
 
   it 'can edit the text of a question' do
 
-    click_link 'Edit this question'
+    click_link 'Edit'
     fill_in 'Question Description', with: 'Bannanas red?'
-    click_button 'Save the question!'
+    click_button 'Update Question'
 
     expect(page).to have_content 'Bannanas red?'
 
   end
 
   it 'can delete a quesiton' do
-    click_link 'Delete this question'
+    click_link 'Delete'
     expect(page).not_to have_content 'Bannanas red?'
   end
 
