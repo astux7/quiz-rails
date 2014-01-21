@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   #added auth for login
   before_action :authenticate_user!
 
+  def after_sign_in_path_for(user)
+  	random_question = Question.start_the_quiz(user)
+    question_path(random_question)
+  end
   # def index
   #    @questions =  questions_controller.classify
   # end

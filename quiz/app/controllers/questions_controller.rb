@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all
+    @questions = Question.where("user_id = ?", current_user)
   end
 
   def edit

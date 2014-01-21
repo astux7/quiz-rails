@@ -15,13 +15,13 @@
   <div class="control-group">
     <%= f.label :description,  'Question Description', :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :description, :class => 'text_field' %>
+      <%= f.text_area :description, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :user_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :user_id, :class => 'text_field' %>
+      <%= current_user.email %>
     </div>
   </div>
   <div class="control-group">
