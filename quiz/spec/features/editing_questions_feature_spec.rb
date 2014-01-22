@@ -13,9 +13,9 @@ describe 'editing question' do
   end
 
   it 'can edit the text of a question' do
-    raise page.html
+   # raise page.html
     visit '/questions'
-    click_button 'Edit'
+    click_link 'Edit'
     fill_in 'Question Description', with: 'Bannanas red?'
     click_button 'Update Question'
 
@@ -25,7 +25,7 @@ describe 'editing question' do
 
   it 'can delete a quesiton' do
     visit '/questions'
-    click_button 'Delete'
+    click_link 'Delete'
     expect(page).not_to have_content 'Bannanas red?'
   end
 
