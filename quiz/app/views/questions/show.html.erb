@@ -25,7 +25,7 @@
 <div class='row'>
   <% @question.answer.each do |answer| %>
     <div class='col-sm-6 alert <%=  %>'>
-      <h4>Student: <%= @question.user.email %></h4>
+      <h4>Student: <%= answer.user.email %></h4>
       <%= answer.answer %> - <%=  answer.answer==@question.correct_answer ? 'Correct' : 'Wrong' %><br />
        <%= answer.created_at %>
     </div>

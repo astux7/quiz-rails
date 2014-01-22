@@ -21,7 +21,10 @@
   <%= form.label :answer, 'Incorrect?' %>
   <%= form.radio_button :answer, true %>
 
+
   <br>
-  <%= form.submit 'Answer the question!'%>
+  <%= form.hidden_field :question_id %>
+  <%= form.submit 'Next>>' %>
+  
 <% end %>
 

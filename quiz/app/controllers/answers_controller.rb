@@ -12,9 +12,9 @@ class AnswersController < ApplicationController
 		@answer.user = current_user
 
 		if @answer.save
-			redirect_to question_path(@question)
+			redirect_to '/attempts/index'
 		else
-			render 'new'
+			redirect_to '/questions'
 		end
 
 	end
