@@ -2,21 +2,20 @@ require 'spec_helper'
 
 describe 'editing question' do
 
-  before do
-    visit '/'
-       click_link 'Register'
-       fill_in 'Email', with: 'asp@a.com'
+  before(:each) do
+       visit '/users/sign_up'
+       fill_in 'Email', with: 'asta3p@ra.com'
        fill_in 'Password', with: '12345678'
        fill_in 'Password confirmation', with: '12345678'
        click_button 'Sign up'
+       Question.create!(description: 'Blah blah blah blah blah blah blah', correct_answer: false, user_id: User.last.id)
        
-       @q = Question.create(description: 'Blah blah blah blah blah blah blah', correct_answer: false, user: current_user)
-        visit '/questions'
   end
 
   it 'can edit the text of a question' do
-
-    click_link 'Edit'
+    raise page.html
+    visit '/questions'
+    click_button 'Edit'
     fill_in 'Question Description', with: 'Bannanas red?'
     click_button 'Update Question'
 
@@ -25,7 +24,8 @@ describe 'editing question' do
   end
 
   it 'can delete a quesiton' do
-    click_link 'Delete'
+    visit '/questions'
+    click_button 'Delete'
     expect(page).not_to have_content 'Bannanas red?'
   end
 

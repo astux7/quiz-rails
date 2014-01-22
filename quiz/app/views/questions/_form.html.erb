@@ -10,7 +10,7 @@
   </div>
 <% end %>
 
-
+<div class='row single-question'>
 <%= form_for @question, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :description,  'Question Description', :class => 'control-label' %>
@@ -18,22 +18,21 @@
       <%= f.text_area :description, :class => 'text_field' %>
     </div>
   </div>
+
   <div class="control-group">
-    <%= f.label :user_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= current_user.email %>
-    </div>
+  <%= f.label :correct_answer, "False?" %>
+  <%= f.radio_button :correct_answer, false, :checked => true %>
   </div>
   <div class="control-group">
-    <%= f.label :correct_answer, "Question's answer F or T?" %>
-  <%= f.radio_button :correct_answer, false, :checked => true %>
-  <%= f.radio_button :correct_answer, true %>
-    
+  <%= f.label :correct_answer, "True?" %>
+  <%= f.radio_button :correct_answer, true %>    
   </div>
 
-  
-  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <hr />
+  <div class="controls-buttons">
+  <%= f.button nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
             questions_path, :class => 'btn btn-default' %>
- 
+ </div>
 <% end %>
+</div>

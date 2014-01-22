@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   #devise_for :users
   #root "application#index"
-  root "attempts#index"
+  root "attempts#new"
   resources :questions do
     resources :answers
   end

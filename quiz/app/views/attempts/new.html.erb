@@ -1,4 +1,4 @@
-
+<div class='row single-question'>
 
 
 <% if @answer.errors.any? %>
@@ -14,17 +14,22 @@
 <% end %>
 
 <%= form_for [@random_question, @answer] do |form| %>
+<div class="question-description">
   <%= @random_question.description %>?
-  <br />
+</div>
+<div class="question-answer">
+  <span class="correct">
   <%= form.label :answer, 'Correct?' %>
   <%= form.radio_button :answer, false %>
+</span>
+<span class="incorrect">
   <%= form.label :answer, 'Incorrect?' %>
   <%= form.radio_button :answer, true %>
-
-
-  <br>
+</span>
+</div>
   <%= form.hidden_field :question_id %>
-  <%= form.submit 'Next>>' %>
+  <%= form.button 'Next>>', :class => 'btn btn-primary' %>
   
 <% end %>
+</div>
 
