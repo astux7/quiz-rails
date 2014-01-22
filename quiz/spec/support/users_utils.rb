@@ -1,4 +1,5 @@
-
+#login as is taken from divise need to write in spec_helper   config.include Warden::Test::Helpers Warden.test_mode!
+#it using login_as from devise and :user from factoryGirl
 def login
     # visit '/'
     # click_link 'Register'
@@ -7,6 +8,6 @@ def login
     # fill_in 'Password confirmation', with: '12345678'
     # click_button 'Sign up'
     visit '/'
-    user = User.create(email: 'a@a.com', password: '12345678', password_confirmation: '12345678')
+    user = create(:user)
     login_as(user)
 end

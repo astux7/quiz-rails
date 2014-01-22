@@ -2,11 +2,7 @@ require 'spec_helper'
 
 describe 'creating question' do
      before(:each) do
-       visit '/users/sign_up'
-       fill_in 'Email', with: 'asta3p@ra.com'
-       fill_in 'Password', with: '12345678'
-       fill_in 'Password confirmation', with: '12345678'
-       click_button 'Sign up'
+       login
      end
 
   context 'given a description of question' do

@@ -3,11 +3,15 @@ require 'spec_helper'
 describe 'editing question' do
 
   before(:each) do
-       visit '/users/sign_up'
-       fill_in 'Email', with: 'asta3p@ra.com'
-       fill_in 'Password', with: '12345678'
-       fill_in 'Password confirmation', with: '12345678'
-       click_button 'Sign up'
+
+    visit '/'
+    # click_link 'Register'
+    # fill_in 'Email', with: 'a@a.com'
+    # fill_in 'Password', with: '12345678'
+    # fill_in 'Password confirmation', with: '12345678'
+    # click_button 'Sign up'
+   login
+
        Question.create!(description: 'Blah blah blah blah blah blah blah', correct_answer: false, user_id: User.last.id)
        
   end

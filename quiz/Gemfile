@@ -37,6 +37,9 @@ gem 'spring'        #group: :development
 #for User model and views creation
 gem 'devise'
 
+#for test prepare not to repeat
+gem 'factory_girl_rails', "~> 4.0"
+
 # gem 'less'
 #installing default css
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => 'bootstrap3'
