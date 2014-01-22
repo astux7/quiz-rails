@@ -1,0 +1,27 @@
+
+
+
+<% if @answer.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this post from being saved:</h2>
+ 
+    <ul>
+    <% @answer.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for [@random_question, @answer] do |form| %>
+  <%= @random_question.description %>?
+  <br />
+  <%= form.label :answer, 'Correct?' %>
+  <%= form.radio_button :answer, false %>
+  <%= form.label :answer, 'Incorrect?' %>
+  <%= form.radio_button :answer, true %>
+
+  <br>
+  <%= form.submit 'Answer the question!'%>
+<% end %>
+

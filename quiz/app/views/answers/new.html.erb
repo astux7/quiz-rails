@@ -1,0 +1,25 @@
+<%- model_class = Question -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<% if @answer.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this post from being saved:</h2>
+ 
+    <ul>
+    <% @answer.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @answer do |form| %>
+
+  <%= form.label :answer, "Question's answer F or T?" %>
+  <%= form.radio_button :answer, false %>
+  <%= form.radio_button :nswer, true %>
+
+  <br>
+  <%= form.submit 'Save the answer!'%>
+<% end %>

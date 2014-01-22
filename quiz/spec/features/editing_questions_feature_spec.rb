@@ -3,8 +3,15 @@ require 'spec_helper'
 describe 'editing question' do
 
   before do
-    Question.create(description: 'Blah blah blah blah blah blah blah', correct_answer: false)
-    visit '/questions'
+    visit '/'
+       click_link 'Register'
+       fill_in 'Email', with: 'asp@a.com'
+       fill_in 'Password', with: '12345678'
+       fill_in 'Password confirmation', with: '12345678'
+       click_button 'Sign up'
+       
+       @q = Question.create(description: 'Blah blah blah blah blah blah blah', correct_answer: false, user: current_user)
+        visit '/questions'
   end
 
   it 'can edit the text of a question' do
