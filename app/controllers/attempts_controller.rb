@@ -9,8 +9,9 @@ class AttemptsController < ApplicationController
 	    @answer = Answer.new(question: @random_question, user: current_user)
 
 	    unless @random_question
-	      	flash[:error] = "You answered all the questions or no questions in quiz!"
-	      	redirect_to  questions_path
+	  		flash[:notice] = flash[:notice]
+	    	flash[:error] = "You answered all the questions or no questions in quiz!"
+	    	redirect_to  questions_path
 	    end
 	end
 

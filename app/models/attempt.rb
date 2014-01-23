@@ -1,18 +1,8 @@
-
 class Attempt
   
   def self.statistic_users
-    users_quiz = []
-    User.all.each{|user|
-       users_quiz << {:email => user.email, :score => 0, user_id: user.id}
-    }
-    users_quiz.map{|user|
-      alss = Answer.where('user_id = ? ', user[:user_id]).count
-      alls = alss == 0 ? 1 :  alss
-      corrects = Answer.where('user_id = ? AND correct = true', user[:user_id]).order(:question_id).count
-      user[:score] = (corrects*100)/(alls)
-   }
-   users_quiz
+    users_quiz = format_user_stat
+    update_scores(users_quiz)
   end
 
   def self.statistic_questions
@@ -22,6 +12,21 @@ class Attempt
     quiz[:hardest_question] = Question.hardest_question
     quiz[:easiest_question] = Question.easiest_question
     return quiz
+  end
+
+  def self.format_user_stat
+    users_quiz = []
+    User.all.each{|user|
+       users_quiz << {:email => user.email, :score => 0, user_id: user.id}
+    }
+    users_quiz
+  end
+
+  def self.update_scores(users_quiz)
+    users_quiz.map{|user|
+      user[:score] = Answer.user_correct_per(user).to_i
+    }
+    users_quiz
   end
 
 end

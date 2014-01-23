@@ -6,8 +6,8 @@ class AnswersController < ApplicationController
 		@answer = Answer.new(params[:answer].permit(:answer))
 		@answer.question_id = @question.id
 		@answer.user = current_user
-     	if @answer.save!
-     		flash[:notice] = (@answer.correct ? "Correct Answer!" : "Incorrect Answer!")
+    if @answer.save!
+     	flash[:notice] = (@answer.correct ? "Correct Answer!" : "Incorrect Answer!")
 			redirect_to  new_attempt_path
 		else
 			redirect_to questions_path
