@@ -1,0 +1,27 @@
+// Place all the styles related to the attempts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.question-description{
+	font-weight: bold;
+	font-size:1.4em;
+	padding-bottom: 10px;
+}
+
+.question-answer{
+	font-weight: normal;
+	font-size:1.0em;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.question-answer span{
+	margin-right: 40px;
+}
+.correct {
+	color: green;
+}
+
+.incorrect {
+	color: red;
+}
+

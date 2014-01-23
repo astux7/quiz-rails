@@ -1,0 +1,40 @@
+<% if @question.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@question.errors.count, "error") %> prohibited this post from being saved:</h2>
+ 
+    <ul>
+    <% @question.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class='row single-question'>
+<%= form_for @question, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :description,  'Question Description', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+  <%= f.radio_button :correct_answer, false, :checked => true %>
+  <%= f.label :correct_answer, "Incorrect" %>
+ 
+  </div>
+  <div class="control-group">
+   <%= f.radio_button :correct_answer, true %>  
+  <%= f.label :correct_answer, "Correct" %>
+   
+  </div>
+
+  <hr />
+  <div class="controls-buttons">
+  <%= f.button nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            questions_path, :class => 'btn btn-default' %>
+ </div>
+<% end %>
+</div>

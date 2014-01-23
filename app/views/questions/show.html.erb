@@ -1,0 +1,42 @@
+<%- model_class = Question -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+<div class="row single-question">
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @question.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:correct_answer) %>:</strong></dt>
+  <dd><%= @question.correct_answer %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @question.user.email %></dd>
+ 
+</dl>
+
+<hr/>
+    <div class="controls-buttons">
+    <%= link_to t('.back', :default => t("helpers.links.back")),
+                  questions_path, :class => 'btn btn-default'  %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                  edit_question_path(@question), :class => 'btn btn-default' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                  question_path(@question),
+                  :method => 'delete',
+                  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                  :class => 'btn btn-danger' %>
+    </div>
+</div>
+<hr />
+<% if !@question.answer.none? %>
+<%- model_class = Answer -%>
+<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<div class='row'>
+  <% @question.answer.each do |answer| %>
+    <div class='col-sm-3 alert_<%=  answer.answer == @question.correct_answer ? 'correct' : 'incorrect' %>'>
+      <h4>User's <%= answer.user.email %> answer:</h4>
+      <%= answer.answer %> - <%=  answer.answer == @question.correct_answer ? 'which is Correct' : ' which is Wrong' %><br />
+       <%= answer.created_at %>
+    </div>
+  <% end %>
+</div>
+<% end %>

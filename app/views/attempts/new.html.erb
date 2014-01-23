@@ -1,0 +1,37 @@
+<div class='row single-question centered'>
+
+
+<% if @answer.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this post from being saved:</h2>
+ 
+    <ul>
+    <% @answer.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for [@random_question, @answer] do |form| %>
+<div class="question-description">
+  <%= @random_question.description %>?
+</div>
+<div class="question-answer">
+  <span class="correct">
+  <%= form.label :answer, 'Correct?' %>
+  <%= form.radio_button :answer, true,  :checked => true  %>
+</span>
+<span class="incorrect">
+  <%= form.label :answer, 'Incorrect?' %>
+  <%= form.radio_button :answer, false %>
+</span>
+</div>
+<div class="controls-buttons">
+  <%= form.hidden_field :question_id %>
+  <%= form.button 'Next Question', :class => 'btn btn-primary' %>
+</div>
+  
+<% end %>
+</div>
+
