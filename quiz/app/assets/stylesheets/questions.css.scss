@@ -10,6 +10,9 @@
 	width: auto;
 	opacity: 0.8;
 }
+.centered{
+	text-align: center;
+}
 .controls textarea{
 	width: 100%;
 	margin: 10px;
@@ -21,4 +24,11 @@
 
 .controls-buttons{
 	text-align: center;
+}
+.alert_correct {
+	border: 2px solid green;
+}
+
+.alert_incorrect {
+	border: 2px solid red;
 }

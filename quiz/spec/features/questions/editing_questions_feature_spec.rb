@@ -4,15 +4,15 @@ describe 'editing question' do
 
   before(:each) do
 
-    visit '/'
     # click_link 'Register'
     # fill_in 'Email', with: 'a@a.com'
     # fill_in 'Password', with: '12345678'
     # fill_in 'Password confirmation', with: '12345678'
     # click_button 'Sign up'
-   login
-
-       Question.create!(description: 'Blah blah blah blah blah blah blah', correct_answer: false, user_id: User.last.id)
+    login
+    create(:question, user_id: User.last.id)  
+    # ! means create anyway
+    #create!(:question, description: 'Blah blah blah blah blah blah blah', correct_answer: false, user_id: User.last.id)
        
   end
 

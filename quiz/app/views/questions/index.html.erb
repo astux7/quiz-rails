@@ -14,6 +14,11 @@
     </tr>
   </thead>
   <tbody>
+    <% if @questions.none? %>
+      <tr>
+        <td colspan='6'> No Questions yet!</td>
+      </tr>
+    <% else %>
     <% @questions.each do |question| %>
       <tr>
         <td><%= link_to question.id, question_path(question) %></td>
@@ -32,13 +37,12 @@
         </td>
       </tr>
     <% end %>
+    <% end %>
   </tbody>
 
 </table>
 <p>
-<% if @questions.none? %>
-      No Questions yet!
-<% end %>
+
 </p>
 <div class="controls-buttons">
 <%= link_to t('.new', :default => t("helpers.links.new")),

@@ -1,4 +1,4 @@
-<div class='row single-question'>
+<div class='row single-question centered'>
 
 
 <% if @answer.errors.any? %>
@@ -20,15 +20,17 @@
 <div class="question-answer">
   <span class="correct">
   <%= form.label :answer, 'Correct?' %>
-  <%= form.radio_button :answer, false %>
+  <%= form.radio_button :answer, true,  :checked => true  %>
 </span>
 <span class="incorrect">
   <%= form.label :answer, 'Incorrect?' %>
-  <%= form.radio_button :answer, true %>
+  <%= form.radio_button :answer, false %>
 </span>
 </div>
+<div class="controls-buttons">
   <%= form.hidden_field :question_id %>
-  <%= form.button 'Next>>', :class => 'btn btn-primary' %>
+  <%= form.button 'Next Question', :class => 'btn btn-primary' %>
+</div>
   
 <% end %>
 </div>

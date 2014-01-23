@@ -1,22 +1,16 @@
 class AnswersController < ApplicationController
-		before_action :authenticate_user!
-	def new
-		@question = Question.find params[:question_id]
-		@answer = Answer.new(question: @question)
-	end
+	before_action :authenticate_user!
 
 	def create
-		#redirect_to '/attempts/index' if (params[:answer].answer).nil?
 		@question = Question.find params[:question_id]
 		@answer = Answer.new(params[:answer].permit(:answer))
-		@answer.question = @question
+		@answer.question_id = @question.id
 		@answer.user = current_user
-
-		if @answer.save
-			redirect_to '/attempts/new'
+     	if @answer.save!
+     		flash[:notice] = (@answer.correct ? "Correct Answer!" : "Incorrect Answer!")
+			redirect_to  new_attempt_path
 		else
-			redirect_to '/questions'
+			redirect_to questions_path
 		end
-
 	end
 end

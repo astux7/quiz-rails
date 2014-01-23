@@ -1,0 +1,31 @@
+<h1> Quiz statistic! </h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>All users</th>
+      <th>All questions</th>
+      <th>Hardest Q</th>
+      <th>Easiest Q</th>
+
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= @quiz[:users_all] %></td>
+        <td><%= @quiz[:questions_all] %></td>
+        <td><%= @quiz[:hardest_question] %></td>
+        <td><%= @quiz[:easiest_question] %></td>
+       
+      </tr>
+    
+  </tbody>
+
+</table>
+<div class='row'>
+  <% @users_quiz.each do |user| %>
+    <div class='col-sm-3 alert <%=  %>'>
+      <h4>User's <%= user[:email] %> scores:</h4>
+     Correct: <%= user[:score]  %>%, Incorrect:<%= 100 - user[:score]  %>% <br />
+    </div>
+  <% end %>
+</div>

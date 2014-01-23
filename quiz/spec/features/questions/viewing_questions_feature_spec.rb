@@ -17,9 +17,9 @@ describe 'question index' do
     end
 
     it 'should display the correct answer and descriptions of the questions' do
-     visit '/questions'
-     expect(page).to have_content 'Blah blah'
-     expect(page).to have_content 'Murrrr'
+      visit '/questions'
+      expect(page).to have_content 'Blah blah'
+      expect(page).to have_content 'Murrrr'
     end
   end
 

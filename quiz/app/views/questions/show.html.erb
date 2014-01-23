@@ -27,14 +27,16 @@
     </div>
 </div>
 <hr />
+<% if !@question.answer.none? %>
 <%- model_class = Answer -%>
 <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 <div class='row'>
   <% @question.answer.each do |answer| %>
-    <div class='col-sm-6 alert <%=  %>'>
-      <h4>Student's <%= answer.user.email %> answer:</h4>
+    <div class='col-sm-3 alert_<%=  answer.answer == @question.correct_answer ? 'correct' : 'incorrect' %>'>
+      <h4>User's <%= answer.user.email %> answer:</h4>
       <%= answer.answer %> - <%=  answer.answer == @question.correct_answer ? 'which is Correct' : ' which is Wrong' %><br />
        <%= answer.created_at %>
     </div>
   <% end %>
 </div>
+<% end %>

@@ -20,12 +20,14 @@
   </div>
 
   <div class="control-group">
-  <%= f.label :correct_answer, "False?" %>
   <%= f.radio_button :correct_answer, false, :checked => true %>
+  <%= f.label :correct_answer, "Incorrect" %>
+ 
   </div>
   <div class="control-group">
-  <%= f.label :correct_answer, "True?" %>
-  <%= f.radio_button :correct_answer, true %>    
+   <%= f.radio_button :correct_answer, true %>  
+  <%= f.label :correct_answer, "Correct" %>
+   
   </div>
 
   <hr />
