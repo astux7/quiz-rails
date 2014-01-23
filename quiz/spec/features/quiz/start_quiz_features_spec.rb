@@ -12,7 +12,7 @@ describe 'creating question' do
       visit '/'
       expect(current_path).to eq '/questions'
       #raise page.html
-      expect(page).to have_content 'You answered all the questions!'
+      expect(page).to have_content 'You answered all the questions or no questions in quiz!'
     end
 
   end
