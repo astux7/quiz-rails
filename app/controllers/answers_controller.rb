@@ -7,7 +7,7 @@ class AnswersController < ApplicationController
 		@answer.question_id = @question.id
 		@answer.user = current_user
     if @answer.save!
-     	flash[:notice] = (@answer.correct ? "Correct Answer!" : "Incorrect Answer!")
+     	@answer.correct ? flash[:success] = "Correct Answer!" : flash[:error] = "Incorrect Answer!"
 			redirect_to  new_attempt_path
 		else
 			redirect_to questions_path

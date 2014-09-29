@@ -27,6 +27,7 @@
         <td><%= question.correct_answer %></td>
         <td> Created <%= time_ago_in_words question.created_at %> ago</td>
         <td>
+          <%= link_to :Show, question_path(question), :class => 'btn btn-default btn-xs'  %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_question_path(question), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

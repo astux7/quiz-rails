@@ -1,6 +1,4 @@
 require 'spec_helper'
-#sql output during test
-#ActiveRecord::Base.logger = Logger.new(STDOUT)
 
 describe Answer do
 
